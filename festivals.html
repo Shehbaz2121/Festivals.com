@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festivals.com</title>
+    <link rel="stylesheet" href="css/festivals.css"> 
+    <link rel="stylesheet" href="css/footer.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="Js/Main.js"></script>
+    <style>
+      
+    </style>
+</head>
+<body>
+    <header>
+      <script src="Js/Main.js"></script>
+    <div class="navbar">
+        <div style="display: flex; align-items: center;">
+        <img class="logo" src="assets/logo.png" alt="">
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+  <a href="index.html">Home</a>
+  <a href="feedback.html">Feedback</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="Books.html">Books</a>
+  <a href="about.html">About</a>
+   </div>
+</div>
+ <script>
+  function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('open');
+}
+
+        const navbar = document.querySelector(".navbar");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>    
+</header>
+
+  <section class="hero animate-up" aria-label="Hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <h1 class="hero-title animate-left">Festivals</h1>
+
+    <div class="hero-meta">
+      <div style="font-weight:700; font-size:14px; letter-spacing:1px;">Cultural Festivals — Overview</div>
+    </div>
+  </section>
+  <section class="page-inner center animate-right">
+    <div style="text-align:left; margin-bottom:26px;">
+        <div class="section-heading">Festivals</div>
+        <div class="section-sub muted">Select a religion below to read about its most celebrated festivals. Click a festival card to learn more.</div>
+      </div>
+      <article class="religion animate-left" id="judaism">
+  <div class="left">
+    <h2>Judaism</h2>
+    <p class="muted">Traditions rooted in history — times of reflection, gratitude and community.</p>
+
+    <div class="list">
+      <a class="festival-card" href="judiasm.html"><strong>Rosh Hashanah</strong><div class="muted">Jewish new year.</div></a>
+      <a class="festival-card" href="judiasm.html"><strong>Yom Kippur</strong><div class="muted">Day of Atonement.</div></a>
+      <a class="festival-card" href="judiasm.html"><strong>Sukkot</strong><div class="muted">Festival of Booths.</div></a>
+      <!-- <a class="festival-card" href="judiasm.html"><strong>Hanukkah</strong><div class="muted">Festival of Lights.</div></a> -->
+    </div>
+
+    <a class="view-more" href="judiasm.html">Explore Judaism Festivals</a>
+  </div>
+
+ <div class="right" style="padding-top: 80px;">
+    <img src="assets/Rabbi.jpg" class="religion-img" alt="">
+</div>
+
+</article>
+ <article class="religion animate-right" id="islam">
+  <div class="left">
+    <h2>Islam</h2>
+    <p class="muted">Months of fasting, prayer and joyful community celebrations.</p>
+
+    <div class="list">
+      <a class="festival-card" href="islam.html"><strong>Ramadan</strong><div class="muted">Month of fasting & prayer.</div></a>
+      <a class="festival-card" href="islam.html"><strong>Eid ul-Fitr</strong><div class="muted">Celebration after Ramadan.</div></a>
+      <a class="festival-card" href="islam.html"><strong>Eid ul-Adha</strong><div class="muted">Festival of sacrifice.</div></a>
+      <a class="festival-card" href="islam.html"><strong>Mawlid</strong><div class="muted">Prophet’s birth.</div></a>
+    </div>
+
+    <a class="view-more" href="islam.html">Explore Islamic Festivals</a>
+  </div>
+
+  <div class="right">
+      <img src="assets/Islamic-scholar.lpg.jpeg" alt="" class="religion-img">
+  </div>
+</article>
+      <article class="religion animate-left" id="christianity">
+  <div class="left">
+    <h2>Christianity</h2>
+    <p class="muted">Festivals that mark the life, sacrifice and resurrection central to faith.</p>
+
+    <div class="list">
+      <a class="festival-card" href="christianity.html"><strong>Christmas</strong><div class="muted">Birth of Jesus.</div></a>
+      <a class="festival-card" href="christianity.html"><strong>Good Friday</strong><div class="muted">Crucifixion of Jesus.</div></a>
+      <a class="festival-card" href="christianity.html"><strong>Easter</strong><div class="muted">Resurrection of Christ.</div></a>
+      <a class="festival-card" href="christianity.html"><strong>Pentecost</strong><div class="muted">Coming of Holy Spirit.</div></a>
+    </div>
+
+    <a class="view-more" href="christianity.html">Explore Christian Festivals</a>
+  </div>
+
+  <div class="right">
+      <img src="assets/preists.jpg" alt="" class="religion-img">
+  </div>
+</article>
+      <article class="religion animate-right" id="hinduism">
+  <div class="left">
+    <h2>Hinduism</h2>
+    <p class="muted">Lively and colorful festivals expressing devotion and cultural traditions.</p>
+
+    <div class="list">
+      <a class="festival-card" href="hinduism.html"><strong>Diwali</strong><div class="muted">Festival of Lights.</div></a>
+      <a class="festival-card" href="hinduism.html"><strong>Holi</strong><div class="muted">Festival of Colors.</div></a>
+      <a class="festival-card" href="hinduism.html"><strong>Navratri</strong><div class="muted">Nine nights of devotion.</div></a>
+      <a class="festival-card" href="hinduism.html"><strong>Raksha Bandhan</strong><div class="muted">Sibling bond festival.</div></a>
+    </div>
+
+    <a class="view-more" href="hinduism.html">Explore Hindu Festivals</a>
+  </div>
+
+  <div class="right">
+      <img class="religion-img" src="https://content.twinkl.co.uk/website/uploaded/brahma-in-the-lotus-1640364860.png" alt="">
+  </div>
+</article>
+
+  </section>
+  <footer>
+<div class="container">
+    <div class="col-1">
+        <img src="assets/logo.png" alt="Logo">
+        <p>“All religions teach love, peace, kindness, and respect. When we honor each other’s beliefs, we create a more united and compassionate world.”</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <div class="col-2">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="Books.html">Books</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Festivals</h3>
+        <ul>
+            <li><a href="judiasm.html">Judaism</a></li>
+            <li><a href="islam.html">Islam</a></li>
+            <li><a href="Christianity.html">Christianity</a></li>
+            <li><a href="hinduism.html">Hinduism</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Religious Cities</h3>
+        <ul>
+            <li><a href="https://maps.app.goo.gl/AUKopKAU2eQ4c53t5">Jeruslem</a></li>
+            <li><a href="https://maps.app.goo.gl/F24unVTsVucJ6pc16">Makkah</a></li>
+            <li><a href="https://maps.app.goo.gl/vpg6gdYVXuZoiChX6">Madina</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer-2">
+    <p>© 2025 | Festivals All Rights Reserved.</p>
+</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+      body {
+        background-color: darkgray;
+      }
+        .navbar {
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: transparent;   
+    padding: 12px 30px;
+    z-index: 9999;
+    transition: background-color .4s ease, padding .3s ease;
+}
+
+.navbar.scrolled {
+    background-color: darkgoldenrod;
+    padding: 8px 30px;
+    a {
+      color: black;
+    }
+}
+
+
+.logo {
+    width: 100px;
+    height: 100px;
+    transition: .5s ease-in;
+}
+.logo:hover {
+  width: 120px;
+  height: 120px;
+}
+
+
+.navbar a {
+  float: left;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: .5s ease;
+}
+
+
+.navbar a:hover {
+   color: rgb(109, 80, 7);
+  
+}
+
+
+.toggle-btn {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .navbar {
+      position: relative;
+      background-color: darkgoldenrod;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none; 
+        background: darkgoldenrod;
+        padding-bottom: 10px;
+    }
+
+    .navbar  {
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }    
+    .nav-links.open {
+        display: flex;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div style="display: flex; align-items: center;">
+        <img class="logo" src="/assets/logo.png" alt="">
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+    <a href="festivals.html">festivals</a>
+  <a href="#news">Feedback</a>
+  <a href="#news">Gallery</a>
+  <a href="Books.html">Books</a>
+  <a href="about.html">About</a>
+   </div>
+</div>
+ <script>
+        const navbar = document.querySelector(".navbar");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+</body>
+</html>

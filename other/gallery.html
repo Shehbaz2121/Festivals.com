@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .gallery-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 10%;
+    background: #1a1a1a;
+    color: #f4f4f4;
+    gap: 60px;
+}
+
+/* LEFT TEXT */
+.gallery-text {
+    flex: 1;
+}
+
+.gallery-text h2 {
+    font-size: 2.8rem;
+    margin-bottom: 20px;
+    font-family: "Garamond", serif;
+}
+
+.gallery-text p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+.gallery-btn {
+    display: inline-block;
+    padding: 12px 26px;
+    font-size: 1.1rem;
+    background: #e0c185;
+    color: #1a1a1a;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.gallery-btn:hover {
+    background: #f0d7a8;
+}
+
+/* RIGHT IMAGE */
+.gallery-image-container {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 14px;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    transform: scale(1);
+    transition: transform 1.3s ease;
+}
+
+    </style>
+</head>
+<body>
+    <section class="gallery-preview" id="gallery">
+    <div class="gallery-text">
+        <h2>Explore Our Gallery</h2>
+        <p>
+            Dive into a visual journey of sacred traditions, vibrant festivals,  
+            and timeless rituals captured beautifully from around the world.
+        </p>
+        <a href="#" class="gallery-btn">View Gallery</a>
+    </div>
+
+    <div class="gallery-image-container">
+        <img src="assets/Navratri.jpg" 
+             class="gallery-img" alt="Festival Image">
+    </div>
+ 
+        <script>
+    const galleryImg = document.querySelector('.gallery-img');
+    const gallerySec = document.querySelector('.gallery-preview');
+
+    function handleScroll() {
+        const rect = gallerySec.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+
+        if (isVisible) {
+            galleryImg.style.transform = "scale(1.08)";
+        } else {
+            galleryImg.style.transform = "scale(1)";
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+</script>
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+:root{ --bg:#f7f6ee; --card:#fff; --accent:#b8860b; --muted:#6b5b3a; }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, Arial, sans-serif;background:var(--bg);color:#222;display: flex;
+    }
+  
+    .container{max-width:1000px;margin:26px auto;padding:0 18px}
+    .grid{display:flex; flex-direction:column;
+    }
+    .religion{background:var(--card);border-radius:12px;padding: 15px ;box-shadow:0 6px 18px rgba(0,0,0,0.06);  width: 800px; margin-bottom: 40PX;}
+    .religion h2{margin:0 0 12px;color:var(--muted)}
+    .books{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;width: 750px;}
+    @media(max-width:900px){.books{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.books{grid-template-columns:repeat(1,1fr)}}
+
+    .card{background:linear-gradient(180deg,#fff,#fbfbf7);border:1px solid #eee;border-radius:10px;padding:10px;display:flex;flex-direction:column;align-items:stretch}
+    .cover{height:140px;border-radius: 8px; overflow: hidden;}
+    .cover img{width: 100%;height: 100%;object-fit: contain;}
+    .meta{padding:8px 6px;flex:1}
+    .title{font-size:15px;margin:0 0 4px;font-weight:700}
+    .author{font-size:13px;color:#6b6b6b;margin:0 0 8px}
+    .price-row{display:flex;justify-content:space-between;align-items:center}
+    .price{font-weight:800;color:var(--accent)}
+    button{background:var(--accent);color:#fff;border:0;padding:8px 10px;border-radius:8px;cursor:pointer}
+    button.secondary{background:#eee;color:#222;border:1px solid #ddd}
+
+   
+    .cart-btn{position:fixed;right:18px;bottom:18px;background:var(--accent);color:#fff;border-radius:999px;padding:12px 16px;box-shadow:0 8px 20px rgba(0,0,0,0.15);display:flex;gap:8px;align-items:center}
+    .cart-panel{position:fixed;right:18px;bottom:72px;width:320px;max-height:70vh;overflow:auto;background:#fff;border-radius:12px;padding:12px;box-shadow:0 12px 30px rgba(0,0,0,0.18);display:none}
+    .cart-item{display:flex;gap:10px;align-items:center;padding:8px 4px;border-bottom:1px solid #f1f1f1}
+    .small-cover{width:52px;height:64px;border-radius:6px;background:#f3e7c9;display:grid;place-items:center;color:#6b4910;font-weight:700}
+    .cart-empty{padding:18px;text-align:center;color:#666}

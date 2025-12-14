@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Default Desktop Styles */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: #111;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+}
+
+.menu-btn {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Media Query for Tablets & Mobiles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; /* Links hatado */
+  }
+
+  .menu-btn {
+    display: block; /* Burger show */
+  }
+}
+
+/* Extra Small Phones */
+@media (max-width: 480px) {
+  .nav {
+    padding: 10px; /* Thoda chota navbar */
+  }
+}
+    </style>
+</head>
+<body>
+    <nav class="nav">
+  <div class="logo">MySite</div>
+  <ul class="nav-links">
+    <li>Home</li>
+    <li>About</li>
+    <li>Services</li>
+    <li>Contact</li>
+  </ul>
+
+  <div class="menu-btn">☰</div>
+</nav>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .image-banner {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background-image: url(assets/Bc.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+.image-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(120, 90, 40, 0.35);
+}
+
+
+.banner-content {
+    position: absolute;
+    bottom: 40px;   
+    right: 300px;     
+    color: white;
+    max-width: 450px;
+}
+
+.banner-content h1 {
+    font-family: "Garamond", serif;
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+}
+
+.banner-content p {
+    font-family: "Garamond", serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+</style>
+</head>
+<body>
+    <section class="image-banner">
+    <div class="banner-content">
+        <h1>Religious Festivals</h1>
+        <p>Rediscover the beauty and meaning of sacred traditions.</p>
+    </div>
+</section>
+
+
+</body>
+</html>

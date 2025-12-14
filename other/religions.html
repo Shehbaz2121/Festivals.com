@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* MAIN SECTION CONTAINER */
+.religions-section {
+    padding: 70px 50px;
+    background-color: #e6ddcf; /* soft neutral like your theme */
+    text-align: center;
+}
+
+/* HEADING */
+.section-heading {
+    font-family: "Garamond", serif;
+    font-size: 2.6rem;
+    color: #3a2a1a;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+/* SUBTEXT */
+.section-subtext {
+    font-family: "Garamond", serif;
+    font-size: 1.2rem;
+    color: #3a2a1a;
+    margin-bottom: 40px;
+}
+
+/* GRID LAYOUT */
+.religion-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+}
+
+/* INDIVIDUAL CARD */
+.religion-card {
+    text-decoration: none;
+    background-color: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease;
+}
+
+.religion-card:hover {
+    transform: translateY(-6px);
+}
+
+/* IMAGE */
+.card-image {
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+}
+
+/* TITLE */
+.religion-card h3 {
+    font-family: "Garamond", serif;
+    font-size: 1.5rem;
+    color: #3a2a1a;
+    padding: 15px;
+    margin: 0;
+}
+
+    </style>
+</head>
+<body>
+    <section class="religions-section">
+    <h2 class="section-heading">Religious Festivals</h2>
+    <p class="section-subtext">
+        Explore the diverse festivals celebrated across different world religions.
+    </p>
+
+    <div class="religion-grid">
+
+        <a href="#christianity" class="religion-card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=80');"></div>
+            <h3>Christianity</h3>
+        </a>
+
+        <a href="#islam" class="religion-card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1505685296765-3a2736de412f?auto=format&fit=crop&w=1200&q=80');"></div>
+            <h3>Islam</h3>
+        </a>
+
+        <a href="#hinduism" class="religion-card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1519895609939-d2a6491c1196?auto=format&fit=crop&w=1200&q=80');"></div>
+            <h3>Hinduism</h3>
+        </a>
+
+        <a href="#buddhism" class="religion-card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1539114963049-6cb4e7c8648d?auto=format&fit=crop&w=1200&q=80');"></div>
+            <h3>Buddhism</h3>
+        </a>
+
+        <a href="#judaism" class="religion-card">
+            <div class="card-image" style="background-image: url('https://images.unsplash.com/photo-1591300643247-d22f2a47f1c8?auto=format&fit=crop&w=1200&q=80');"></div>
+            <h3>Judaism</h3>
+        </a>
+
+    </div>
+</section>
+
+</body>
+</html>

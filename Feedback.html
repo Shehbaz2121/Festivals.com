@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Services and Testimonials Layout</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* navbar */
+/* REVISED .navbar class - Background Fix Applied */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    /* FIX APPLIED: background-color ko transparent se darkgoldenrod mein badal diya gaya hai. */
+    background-color: darkgoldenrod; 
+    
+    /* FIX APPLIED: Padding ko bhi scroll-wala value de diya gaya hai taake size fixed rahe. */
+    padding: 8px 30px; 
+    
+    z-index: 9999;
+    /* Transition sirf padding par hai, background color par nahi */
+    transition: padding .3s ease; 
+}
+
+/* .navbar.scrolled class removed as it's no longer needed for a fixed background color. */
+
+
+.logo {
+    width: 100px;
+    height: 100px;
+    transition: .5s ease-in;
+}
+.logo:hover {
+    width: 120px;
+    height: 120px;
+}
+
+
+.navbar a {
+    float: left;
+    font-size: 20px;
+    /* Links ka color white se black/dark kiya gaya hai solid background par visibility ke liye */
+    color: black; 
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: .5s ease;
+}
+
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    cursor: default;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    /* Dropdown button ka color bhi black kiya gaya hai */
+    color: black; 
+    padding: 14px 16px;
+    background-color: inherit;
+    font-family: inherit; 
+    margin: 0; 
+}
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+    color: rgb(109, 80, 7);
+}
+
+
+.dropdown-content {
+    top: 79px;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 9999;
+}
+
+
+.dropdown-content a {
+    float: none;
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.toggle-btn {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+/* --- Media Query for Mobile --- */
+@media (max-width: 768px) {
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .navbar {
+        position: relative; /* Mobile mein sticky/fixed ki bajaye relative ho jaye */
+        background-color: darkgoldenrod;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none; /* Default hidden */
+        background: darkgoldenrod;
+        padding-bottom: 10px;
+    }
+
+    .navbar a,
+    .dropdown .dropbtn {
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+        color: black; /* Mobile links ka color */
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        background: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    
+    .nav-links.open {
+        display: flex; /* JavaScript se open hone par */
+    }
+}
+        /* Global Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* General Setup and Variables */
+        :root {
+            --primary-bg: lightyellow;
+            /* Main Goldenrod background */
+            --primary-color: #007bff;
+            --text-dark: #212529;
+            --text-light: #ffffff;
+            --green-accent: goldenrod;
+            --card-bg-dark: rgb(226, 171, 33);
+            /* Darker goldenrod for card BG */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            /* Yahan body ka default background white/light rahega */
+        }
+
+        /* --- Global Container --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ========================================================= */
+        /* 1. SERVICES SECTION STYLING */
+        /* ========================================================= */
+        .services-section {
+            padding: 60px 0;
+            color: var(--text-dark);
+            background-color: var(--primary-bg);
+        }
+
+        /* Header Content Styling */
+        .header-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text-dark);
+            margin-top: 0;
+            flex: 1 1 50%;
+            max-width: 50%;
+        }
+
+        .section-description {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            flex: 1 1 50%;
+            max-width: 50%;
+            padding-left: 30px;
+            margin-top: 30px;
+        }
+
+        .tagline {
+            font-size: 0.9rem;
+            color: var(--green-accent);
+            margin-bottom: 5px;
+            width: 100%;
+        }
+
+        /* Services Grid Styling */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            /* 4 columns for the cards */
+            gap: 20px;
+        }
+
+        /* Individual Service Card Styling */
+        .service-card {
+            height: 350px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            color: var(--text-light);
+            border-radius: 5px;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+
+            /* Animation Start State */
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* Animation Final State */
+        .service-card.slide-in {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Staggered Delay */
+        .service-card:nth-child(1) {
+            transition-delay: 0.1s;
+        }
+
+        .service-card:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+
+        .service-card:nth-child(3) {
+            transition-delay: 0.5s;
+        }
+
+        .service-card:nth-child(4) {
+            transition-delay: 0.7s;
+        }
+
+        /* Dark overlay */
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .card-content {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            margin: 0 0 5px 0;
+            font-weight: bold;
+        }
+
+        .card-subtitle {
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .arrow-link {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--text-light);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .arrow-link:hover {
+            background-color: var(--green-accent);
+            border-color: var(--green-accent);
+        }
+
+        /* ========================================================= */
+        /* 2. MARQUEE (Scrolling Strip) STYLING */
+        /* ========================================================= */
+
+        .marquee-wrapper {
+            width: 100%;
+            max-width: none;
+            background-color: goldenrod;
+            border: 1px solid rgb(255, 205, 80);
+            padding: 20px 0;
+            /* Padding kam kar diya */
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-top: 0;
+        }
+
+        .marquee-content {
+            display: flex;
+            gap: 50px;
+            animation: scroll-left 30s linear infinite;
+            white-space: nowrap;
+        }
+
+        .menu-item {
+            flex-shrink: 0;
+            padding: 0 20px;
+            color: yellow;
+            font-weight: 700;
+            font-size: 1.1em;
+            cursor: default;
+            transition: color 0.3s;
+        }
+
+        .menu-item:hover {
+            color: rgb(238, 238, 32);
+        }
+
+        /* Default (Desktop/Tablet) Animation Speed */
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+
+        /* ========================================================= */
+        /* 3. TESTIMONIALS SECTION STYLING (The Fixed Section) */
+        /* ========================================================= */
+        .testimonial-section {
+            background-color: var(--primary-bg);
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+            /* FIX 1: Horizontal scrollbar khatam kiya */
+            overflow-x: hidden;
+            overflow-y: hidden;
+        }
+
+        .testimonial-container {
+            max-width: 1200px;
+            /* Standard width */
+            margin: 0 auto;
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        .section-header {
+            margin-bottom: 50px;
+        }
+
+        .section-header .tagline {
+            font-size: 0.9em;
+            color: goldenrod;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5em;
+            color: black;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        /* FIX 2 & 3: Grid ko wrap aur center kiya */
+        .testimonials-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* Center alignment */
+            gap: 30px;
+            padding-bottom: 0;
+        }
+
+        /* Individual Card Styling */
+        .testimonial-card {
+            background-color: var(--card-bg-dark);
+            border: 1px solid gold;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: left;
+            min-height: 300px;
+
+            /* FIX 4: Teen cards ko fit karne ke liye width */
+            width: 30%;
+            flex-grow: 1;
+            max-width: 370px;
+            flex-shrink: 1;
+        }
+
+        .testimonial-card:hover {
+            transform: scale(1.05);
+            /* Thoda halka hover effect */
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 15px;
+            border: 4px solid yellow;
+            padding: 3px;
+            object-fit: cover;
+        }
+
+        .client-info {
+            border-bottom: 2px solid #49c5b6;
+            padding-bottom: 5px;
+        }
+
+        .client-name {
+            font-weight: 700;
+            color: #000000;
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .client-title {
+            font-size: 1rem;
+            color: yellow;
+            margin: 0;
+        }
+
+        .rating {
+            margin-bottom: 15px;
+            text-align: right;
+        }
+
+        .rating .star {
+            color: rgb(255, 255, 255);
+            font-size: 1.2em;
+        }
+
+        .review-text {
+            color: #ffffff;
+            font-size: 1em;
+            line-height: 1.7;
+        }
+
+        /* ========================================================= */
+        /* 4. STATS SECTION STYLING (The New Box) */
+        /* ========================================================= */
+        .stats-section {
+            width: 100%;
+            /* Full width */
+            max-width: none;
+            padding: 40px 20px;
+            text-align: center;
+            /* --- FIX APPLIED: Goldenrod Background --- */
+            background-color: var(--primary-bg);
+            /* ------------------------------------------ */
+        }
+
+        /* Stats Grid (Four Columns) */
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        /* Individual Stat Box */
+        .stat-box {
+            flex-basis: 22%;
+            padding: 10px;
+            color: var(--text-dark);
+            /* Dark color for numbers on goldenrod BG */
+            min-width: 200px;
+            margin: 10px 0;
+            color: rgb(0, 0, 0);
+        }
+
+        /* Number Styling */
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        /* Label Styling (White Box) */
+        .stat-label {
+            display: inline-block;
+            /* --- FIX APPLIED: White background for label --- */
+            background-color: goldenrod;
+            /* --- FIX APPLIED: Dark text on white label --- */
+            color: rgb(0, 0, 0);
+            padding: 8px 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: 1px solid yellow;
+            border-radius: 3px;
+        }
+
+        .follow {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: rgb(0, 0, 0);
+            /* background-color: goldenrod; */
+            font-family: sans-serif;
+            /* border: solid 2px gold; */
+        }
+
+        /* ========================================================= */
+        /* FOOTER STYLING (REVISED) */
+        /* ========================================================= */
+        footer {
+            width: 100%;
+            background: goldenrod;
+            /* Matched background to theme */
+            color: black;
+            padding: 50px 20px 0 20px;
+            /* Bottom padding removed from here, added to footer-2 */
+        }
+
+        footer .container {
+            width: 100%;
+            /* Container full width of footer */
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            /* Evenly space out columns */
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding: 0 15px;
+        }
+
+        /* Columns */
+        .col-1,
+        .col-2,
+        .col-3,
+        .col-4 {
+            padding: 10px;
+            margin-bottom: 30px;
+            /* Increased margin for better spacing */
+            text-align: left;
+        }
+
+        .col-1 {
+            flex-basis: 35%;
+            /* Increased space for logo and quote */
+            min-width: 250px;
+            /* Minimum width on smaller desktops */
+        }
+
+        /* ADDED .col-4 CSS: col-3 ko do baar use karne ki bajaye col-3 aur col-4 */
+        .col-2 {
+            flex-basis: 20%;
+        }
+
+        .col-3 {
+            flex-basis: 20%;
+        }
+
+        .col-4 {
+            flex-basis: 20%;
+            /* New column for location */
+        }
+
+        /* Logo */
+        .col-1 img {
+            height: 150px;
+            width: 150px;
+            transition: .3s;
+        }
+
+        .col-1 img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Quote below logo */
+        .col-1 p {
+            margin: 15px 0;
+            font-size: 14px;
+            line-height: 1.5;
+            color: black;
+        }
+
+        /* Social Icons below quote */
+        .social-icons {
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            color: #25262A;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            margin: 0 5px 5px 0;
+            transition: .3s;
+        }
+
+        .social-icons a:hover {
+            background: #eed706;
+            color: #fff;
+        }
+
+        /* Links */
+        footer .container h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            transition: 0.3s;
+            display: inline-block;
+            border-bottom: 2px solid #eed706;
+            padding-bottom: 5px;
+        }
+
+        footer .container h3:hover {
+            color: #eed706;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: black;
+            transition: .3s;
+        }
+
+        ul li a:hover {
+            color: #eed706;
+        }
+
+        .footer-2 {
+            width: 100%;
+            text-align: center;
+            padding: 20px 20px;
+     
+            /* Slightly darker strip */
+            font-size: 14px;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        /* ========================================================= */
+        /* MEDIA QUERIES (REVISED) */
+        /* ========================================================= */
+
+        /* Tablet/Large Mobile (992px) */
+        @media (max-width: 992px) {
+            .header-content {
+                flex-direction: column;
+            }
+            .section-title,
+            .section-description {
+                max-width: 100%;
+                padding-left: 0;
+                margin-top: 10px;
+
+
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* --- NEW: .follow for 992px --- */
+            .follow {
+                padding: 15px 0;
+                /* Example adjustment */
+                font-size: 1.5rem;
+            }
+
+            /* FOOTER Adjustments */
+            footer .container {
+                justify-content: space-around;
+            }
+
+            .col-1 {
+                flex-basis: 100%;
+                min-width: auto;
+            }
+
+            .col-2,
+            .col-3,
+            .col-4 {
+                flex-basis: 30%;
+            }
+        }
+
+        /* Tablet (768px) */
+        @media (max-width: 768px) {
+            .testimonial-section {
+                padding: 40px 0;
+            }
+
+            .testimonial-card {
+                width: 45%;
+                /* 2 cards per row */
+                max-width: 45%;
+                padding: 20px;
+            }
+
+            .testimonials-grid {
+                gap: 20px;
+            }
+
+            .stat-box {
+                flex-basis: 45%;
+                /* Tablet pe 2 columns */
+            }
+
+            /* --- NEW: .follow for 768px --- */
+            .follow {
+                padding: 10px 0;
+                /* Example adjustment */
+                font-size: 1.4rem;
+            }
+
+            /* FOOTER Adjustments */
+            .col-2,
+            .col-3,
+            .col-4 {
+                flex-basis: 45%;
+            }
+        }
+
+        /* Mobile (576px) */
+        @media (max-width: 576px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-section {
+                overflow-x: hidden;
+            }
+
+            .testimonials-grid {
+                flex-direction: column;
+                /* 1 card per row */
+                align-items: center;
+            }
+
+            .testimonial-card {
+                width: 90%;
+                max-width: 90%;
+            }
+
+            /* --- MARQUEE WRAPPER MOBILE FIX (Speed Adjusted for small screens) --- */
+            .marquee-content {
+                animation: scroll-left-mobile 45s linear infinite;
+                /* Speed slow kar di gayi hai (45s) */
+            }
+
+            /* Mobile ke liye naya, slow animation */
+            @keyframes scroll-left-mobile {
+                0% {
+                    transform: translateX(0);
+                }
+
+                100% {
+                    transform: translateX(-50%);
+                }
+            }
+            /* ------------------------------------------------------------------- */
+
+            .stats-grid {
+                flex-direction: column;
+                /* Mobile pe 1 column */
+                align-items: center;
+            }
+
+            .stat-box {
+                min-width: 90%;
+            }
+
+            /* --- NEW: .follow for 576px --- */
+            .follow {
+                padding: 8px 0;
+                /* Example adjustment */
+                font-size: 1.2rem;
+            }
+            /* ----------------------------- */
+
+            /* FOOTER Adjustments */
+            footer .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .col-1,
+            .col-2,
+            .col-3,
+            .col-4 {
+                flex-basis: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+        <header>
+      <script src="Js/Main.js"></script>
+    <div class="navbar">
+        <div style="display: flex; align-items: center;">
+        <img class="logo" src="assets/logo.png" alt="">
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+    <a href="festivals.html">festivals</a>
+    <!-- <div class="dropdown-content">
+      <a href="#">Islam</a>
+      <a href="#">Judiasm</a>
+      <a href="#">Christianity</a>
+      <a href="#">Hinduism</a>  
+    </div>
+  </div> -->
+  <!-- <div class="dropdown">
+    <a class="dropbtn"></a>
+    <div class="dropdown-content">
+      <a href="#">Rosh Hashanah</a>
+      <a href="#">Yom Kippur</a>
+      <a href="#">Sikkot</a>  
+    </div>
+  </div>
+  <div class="dropdown">
+    <a class="dropbtn">Christianity</a>
+    <div class="dropdown-content">
+      <a href="#">Christmas</a>
+      <a href="#">Good Friday</a>
+      <a href="#">Easter</a>
+      <a href="#">Pentecost</a>  
+    </div>
+  </div>
+  <div class="dropdown">
+    <a class="dropbtn">Hinduism</a>
+    <div class="dropdown-content">
+      <a href="#">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>  
+    </div>
+  </div> -->
+  <a href="Feedback.html">Feedback</a>
+  <a href="#news">Gallery</a>
+  <a href="Books.html">Books</a>
+  <a href="about.html">About</a>
+   </div>
+</div> 
+</header>
+
+<br>
+<br>
+<br>
+<br>
+    <section class="services-section">
+        <div class="container">
+            <div class="header-content">
+                <p class="tagline">— What We're Offering</p>
+                <h2 class="section-title">Improve & Enhance Our Religious Knowledge</h2>
+                <p class="section-description" style="color: #000000;">
+                    We believe true knowledge brings clarity, peace, and purpose. Through learning and reflection, we
+                    build a stronger foundation of faith—one that guides our actions and shapes our future with wisdom
+                    and compassion.
+                </p>
+            </div>
+
+            <div class="services-grid">
+
+                <div class="service-card" style="background-image: url('assets/church.jpeg');">
+                    <div class="card-content">
+                        <h3 class="card-title">Christianity</h3>
+                        <p class="card-subtitle">The Trinity..</p>
+                        <a href="#" class="arrow-link">
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card" style="background-image: url('assets/Hindu.jpg');">
+                    <div class="card-content">
+                        <h3 class="card-title">Hinduism</h3>
+                        <p class="card-subtitle">God Has Many Forms..</p>
+                        <a href="#" class="arrow-link">
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card" style="background-image: url('assets/islamic.jpg');">
+                    <div class="card-content">
+                        <h3 class="card-title">Islam</h3>
+                        <p class="card-subtitle">Believe One God..</p>
+                        <a href="#" class="arrow-link">
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card" style="background-image: url('assets/jewish.jpeg');">
+                    <div class="card-content">
+                        <h3 class="card-title">Judaism</h3s>
+                        <p class="card-subtitle">Divine Law..</p>
+                        <a href="#" class="arrow-link">
+                            <span class="arrow-icon">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="marquee-wrapper">
+        <div class="marquee-content">
+            <span class="menu-item">Christmas</span>
+            <span class="menu-item">Easter</span>
+            <span class="menu-item">Good Friday</span>
+            <span class="menu-item">Diwali</span>
+            <span class="menu-item">Holi</span>
+            <span class="menu-item">Dussehra</span>
+            <span class="menu-item">Eid ul-Fitr</span>
+            <span class="menu-item">Eid ul-Adha</span>
+            <span class="menu-item">Maulid un-Nabi</span>
+            <span class="menu-item">Yom Kippur</span>
+            <span class="menu-item">Passover</span>
+            <span class="menu-item">Hanukkah</span>
+            <span class="menu-item">Christmas</span>
+            <span class="menu-item">Easter</span>
+            <span class="menu-item">Good Friday</span>
+            <span class="menu-item">Diwali</span>
+            <span class="menu-item">Holi</span>
+            <span class="menu-item">Dussehra</span>
+            <span class="menu-item">Eid ul-Fitr</span>
+            <span class="menu-item">Eid ul-Adha</span>
+            <span class="menu-item">Maulid un-Nabi</span>
+            <span class="menu-item">Yom Kippur</span>
+            <span class="menu-item">Passover</span>
+            <span class="menu-item">Hanukkah</span>
+        </div>
+    </div>
+
+
+    <section class="testimonial-section">
+        <div class="testimonial-container">
+            <div class="section-header">
+                <p class="tagline">— Client Testimonials</p>
+                <h2>What They're Talking?</h2>
+            </div>
+
+            <div class="testimonials-grid">
+
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <img src="assets/dp2.jpeg" alt="Sadia Riaz" class="avatar">
+                        <div class="client-info">
+                            <p class="client-name">Sadia Riaz</p>
+                            <p class="client-title">Writing Specialist</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                            class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="review-text">
+                        "Discovering Festival Name has been a monumental moment in my journey of faith. This website is
+                        a treasure trove of authentic, well-researched Islamic knowledge. The content on Fiqh and the
+                        Seerah is presented with such clarity and depth that it makes complex topics easily accessible.
+                        I particularly appreciate how the platform not only teaches the principles but also encourages
+                        Tadabbur (reflection) and practical application in daily life."
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <img src="assets/dp1.jpeg" alt="Shiraz Iqbal" class="avatar">
+                        <div class="client-info">
+                            <p class="client-name">Shiraz Iqbal</p>
+                            <p class="client-title">Office worker</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                            class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="review-text">
+                        "Festival Name is an absolute necessity. The concise lessons and easily digestible content have
+                        made learning about Islam practical for my busy schedule. It truly helps translate deep
+                        knowledge into everyday actions. Highly reliable source for anyone seeking clarity and growth.
+                        Jazak Allah Khair!"
+                    </p>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="card-header">
+                        <img src="assets/dp3.jpeg" alt="Sadia Riaz" class="avatar">
+                        <div class="client-info">
+                            <p class="client-name">Hassan Ali</p>
+                            <p class="client-title">Web Developer</p>
+                        </div>
+                    </div>
+                    <div class="rating">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span
+                            class="star">★</span><span class="star">★</span>
+                    </div>
+                    <p class="review-text">
+                        "The quality of content on Festival Name is outstanding. In a world full of misinformation,
+                        their dedication to providing authentic, balanced Islamic perspective is deeply reassuring. The
+                        platform’s structure is very clear, making it simple to find accurate answers. An essential
+                        resource for the modern Muslim family."
+                    </p>
+                </div>
+            </div>
+            <h2 class="follow">Followers According To Research</h2>
+            <section class="stats-section">
+                <div class="stats-grid">
+
+                    <div class="stat-box">
+                        <div class="stat-number"> 2b +</div>
+                        <div class="stat-label">Islam</div>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-number"> 2.4b +</div>
+                        <div class="stat-label">Christianity</div>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-number">15m +</div>
+                        <div class="stat-label">Judaism</div>
+                    </div>
+
+                    <div class="stat-box">
+                        <div class="stat-number">1.2b +</div>
+                        <div class="stat-label">Hinduism </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="col-1">
+                <img src="assets/logo footer.png" alt="Logo">
+                <p>“All religions teach love, peace, kindness, and respect. When we honor each other’s beliefs, we create
+                    a more united and compassionate world.”</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Festivals</a></li>
+                    <li><a href="#">Books</a></li>
+                </ul>
+            </div>
+
+            <div class="col-3">
+                <h3>Festivals</h3>
+                <ul>
+                    <li><a href="#">Hinduism</a></li>
+                    <li><a href="#">Christianity</a></li>
+                    <li><a href="#">Islam</a></li>
+                    <li><a href="#">Judaism</a></li>
+                </ul>
+            </div>
+
+            <div class="col-3">
+                <h3>Special Sitings</h3>
+                <ul>
+                    <li><a href="https://maps.app.goo.gl/EAgYfCFEdLmU2MJm6">Jeruslem</a></li>
+                    <li><a href="https://maps.app.goo.gl/NkG8QhQ52fLijeJd7">Makkah</a></li>
+                    <li><a href="https://maps.app.goo.gl/HCPAfLG6scvAMJ7H6">Ganga River</a></li>
+                    <li><a href="https://maps.app.goo.gl/652hZcd7KrH6NNdC8">Madina</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-2">
+            <p>© 2025 | Festivals All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for Scroll-triggered Animation (Intersection Observer)
+        document.addEventListener('DOMContentLoaded', () => {
+            const serviceCards = document.querySelectorAll('.service-card');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('slide-in');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            serviceCards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+
+</html>

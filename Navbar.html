@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbar {
+          position: sticky;
+    display: flex;
+  overflow: hidden;
+  background-color: darkgoldenrod;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  justify-content: space-around;
+  align-items: center;
+
+}
+.logo {
+    width: 100px;
+    height: 100px;
+    transition: .5s ease-in;
+}
+.logo:hover {
+  width: 120px;
+  height: 120px;
+}
+
+
+.navbar a {
+  float: left;
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+
+.dropdown .dropbtn {
+  cursor: default;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  color: rgb(0, 0, 0);
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; 
+  margin: 0; 
+}
+
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+   color: rgb(109, 80, 7);
+  
+}
+
+
+.dropdown-content {
+  top: 69px;
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.toggle-btn {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none; 
+        background: darkgoldenrod;
+        padding-bottom: 10px;
+    }
+
+    .navbar a,
+    .dropdown .dropbtn {
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }
+
+    .dropdown-content {
+        position: static;
+        display: none;
+        background: #f1f1f1;
+    }
+
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    
+    .nav-links.open {
+        display: flex;
+    }
+}
+    </style>
+</head>
+<body>
+  
+    <div class="navbar">
+        <div style="display: flex; align-items: center;">
+        <img class="logo" src="assets/logo.png" alt="">
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+            <a href="Main.html">Home</a>
+  <div class="dropdown">
+    <a class="dropbtn">festivals</a>
+    <div class="dropdown-content">
+      <a href="#">Islam</a>
+      <a href="#">Judiasm</a>
+      <a href="#">Christianity</a>
+      <a href="#">Hinduism</a>  
+    </div>
+  </div>
+  <!-- <div class="dropdown">
+    <a class="dropbtn"></a>
+    <div class="dropdown-content">
+      <a href="#">Rosh Hashanah</a>
+      <a href="#">Yom Kippur</a>
+      <a href="#">Sikkot</a>  
+    </div>
+  </div>
+  <div class="dropdown">
+    <a class="dropbtn">Christianity</a>
+    <div class="dropdown-content">
+      <a href="#">Christmas</a>
+      <a href="#">Good Friday</a>
+      <a href="#">Easter</a>
+      <a href="#">Pentecost</a>  
+    </div>
+  </div>
+  <div class="dropdown">
+    <a class="dropbtn">Hinduism</a>
+    <div class="dropdown-content">
+      <a href="#">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>  
+    </div>
+  </div> -->
+  <a href="#news">Feedback</a>
+  <a href="#news">Gallery</a>
+  <a href="#news">Books</a>
+  <a href="about.html">About</a>
+   </div>
+</div>
+<script>
+    function toggleMenu() {
+    document.querySelector('.nav-links').classList.toggle('open');
+}
+
+</script>
+</body>
+</html>

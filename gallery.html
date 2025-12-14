@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Festivals.com</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="css/footer.css">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #F7F3E9;
+      color: #2E2E2E;
+       font-family: Georgia, 'Times New Roman', Times, serif;
+            
+    }
+
+    
+    .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: darkgoldenrod;   
+    padding: 12px 30px;
+    z-index: 9999;
+    transition: background-color .4s ease, padding .3s ease;
+}
+
+.navbar.scrolled {
+    background-color: darkgoldenrod;
+    padding: 8px 30px;
+    a {
+      color: black;
+    }
+}
+
+
+.logo {
+    width: 100px;
+    height: 100px;
+    transition: .5s ease-in;
+}
+.logo:hover {
+  width: 120px;
+  height: 120px;
+}
+
+
+.navbar a {
+  float: left;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: .5s ease;
+}
+
+
+.navbar a:hover {
+   color: rgb(109, 80, 7);
+  
+}
+
+
+.toggle-btn {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .toggle-btn {
+        display: block;
+    }
+
+    .navbar {
+      position: relative;
+      background-color: darkgoldenrod;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none; 
+        background: darkgoldenrod;
+        padding-bottom: 10px;
+    }
+
+    .navbar  {
+        width: 100%;
+        text-align: left;
+        border-bottom: 1px solid rgba(0,0,0,0.2);
+    }    
+    .nav-links.open {
+        display: flex;
+    }
+}
+
+    /* ===== TITLE ===== */
+    .gallery-title {
+      text-align: center;
+      margin-top: 180px;
+      font-size: 36px;
+      color: #8B6508;
+    }
+
+    /* ===== GALLERY GRID (5 PER ROW) ===== */
+    .gallery {
+      padding: 60px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);  
+      gap: 25px;
+    }
+
+    .card {
+      background: #FFF8DC;
+      border: 2px solid #B8860B;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 14px;
+    }
+
+    .card-content h3 {
+      color: #8B6508;
+      margin-bottom: 6px;
+      font-size: 16px;
+    }
+
+    .card-content p {
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1100px) {
+      .gallery { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+      .gallery { grid-template-columns: repeat(1, 1fr); }
+    }
+
+    /* ===== POPUP / LIGHTBOX ===== */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      padding: 20px;
+    }
+
+    .popup-content {
+      background: #FFF8DC;
+      border-radius: 15px;
+      max-width: 600px;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    .popup-content img {
+      width: 100%;
+      max-height: 400px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .popup-content h3 {
+      margin-top: 15px;
+      color: #8B6508;
+    }
+
+    .popup-content p {
+      font-size: 14px;
+      margin-top: 8px;
+    }
+
+    .popup-content button {
+      margin-top: 15px;
+      padding: 8px 20px;
+      border: none;
+      background: #B8860B;
+      color: white;
+      font-size: 14px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .popup-content button:hover {
+      background: #FFD700;
+      color: #2E2E2E;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+   <header>
+  <div class="navbar">
+        <div style="display: flex; align-items: center;">
+        <img class="logo" src="/assets/logo.png" alt="">
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+    <a href="festivals.html">festivals</a>
+  <a href="feedback.html">Feedback</a>
+  <!-- <a href="#news">Gallery</a> -->
+  <a href="Books.html">Books</a>
+  <a href="about.html">About</a>
+   </div>
+</div>
+ <script>
+        const navbar = document.querySelector(".navbar");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>
+    </header>
+
+  
+  <h2 class="gallery-title">Festival Gallery</h2>
+
+  
+  <div class="gallery"> 
+    <div class="card" onclick="openPopup('assets/1.jpg.jpg','Hinduism','Holi is a vibrant festival of colors celebrated across India with joy and togetherness.People throw colored powders, dance, and enjoy festive sweets to welcome the arrival of spring.It symbolizes love, unity, and the victory of good over evil.')">
+      <img src="assets/1.jpg.jpg">
+      <div class="card-content"><h3>Hinduism</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/2.jpg.jpg','Judaism','Judaism is one of the world’s oldest monotheistic religions, centered on the belief in one God.Its teachings come from sacred texts like the Torah, guiding moral living and spiritual connection.Jewish traditions emphasize community, faith, and the importance of remembering their rich history.')">
+      <img src="assets/2.jpg.jpg">
+      <div class="card-content"><h3>Judaism</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/4.jpg','Judaism','Judaism is an ancient faith built on the belief in one God and a life guided by divine commandments.The Torah and other sacred writings shape Jewish values, traditions, and daily practices.Its culture highlights community, remembrance, and a deep connection to heritage and identity.')">
+      <img src="assets/4.jpg">
+      <div class="card-content"><h3>Judaism</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/3.jpg.jpeg','Islam','The Kaaba is the sacred cubic structure located at the center of Masjid al-Haram in Makkah.Muslims around the world face the Kaaba during prayers and visit it during Hajj and Umrah.It symbolizes unity, devotion, and the spiritual heart of the Islamic faith.')">
+      <img src="assets/3.jpg.jpeg">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/4.jpg.jpg','Christianity','Christianity is a global faith based on the teachings of Jesus Christ, emphasizing love, compassion, and forgiveness.Its core beliefs are preserved in the Bible, guiding followers in their spiritual and moral life.Churches, worship, and community play a central role in connecting believers to God and one another.')">
+      <img src="assets/4.jpg.jpg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+
+    <div class="card" onclick="openPopup('assets/5.jpg.webp','Christianity','Christianity is a major world religion centered on the life and message of Jesus Christ.It teaches faith in God, kindness toward others, and hope through spiritual salvation.Christian practices include prayer, worship, and living by the guidance of the Bible.')">
+      <img src="assets/5.jpg.webp">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/6.jpg.jpg','Christianity','25 December is celebrated as Christmas, marking the birth of Jesus Christ in Christian tradition.People around the world enjoy festive gatherings, gift-giving, and decorating their homes.The day symbolizes joy, peace, and sharing kindness with family and community.')">
+      <img src="assets/6.jpg.jpg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/7.jpg.png','Islam','An Islamic madrasa is a religious educational institution where students study the Quran, Hadith, and Islamic teachings.It focuses on building strong moral values, discipline, and a deep understanding of faith.Madrasas play an important role in preserving Islamic knowledge and guiding students toward spiritual development.')">
+      <img src="assets/7.jpg.png">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/8.jpg.jpg','Christianity','Christian worship is a time when believers gather to pray, sing hymns, and connect with God.Church services focus on Bible readings, sermons, and expressing gratitude and faith.It is a moment of peace, reflection, and strengthening spiritual connection within the community.')">
+      <img src="assets/8.jpg.jpg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+
+    <div class="card" onclick="openPopup('assets/9.jpg.png','Islam','Iftar is the meal Muslims eat to break their fast during Ramadan, right after sunset.Traditionally, the fast is broken with dates and water before performing prayers.Iftar is not just about satisfying hunger, but also a time to gather with family and community in gratitude.')">
+      <img src="assets/9.jpg.png">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    
+    
+    <div class="card" onclick="openPopup('assets/10.jpg.jpeg','Eid al-Adha is the Festival of Sacrifice honoring devotion in the Islamic faith. Muslims perform prayers and share meat with family friends and those in need.It is a time for reflection charity and community gathering worldwide.')">
+      <img src="assets/10.jpg.jpeg">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    
+
+
+    <div class="card" onclick="openPopup('assets/11.jpg.jpg','Christianity','Christians sometimes use wine in religious ceremonies called Holy Communion.During this ritual, wine symbolizes the blood of Jesus Christ and bread symbolizes his body.It is a sacred tradition to remember Jesus sacrifice and strengthen faith within the community.')">
+      <img src="assets/11.jpg.jpg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/12.jpg.jpg','Christianity','In Christianity, wine is used in the Holy Communion ceremony.The wine represents the blood of Jesus Christ, and bread represents his body.his ritual is a way for believers to reflect on faith and remember Jesus sacrifice.')">
+      <img src="assets/12.jpg.jpg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/13.jpg.jpg','Islam','Dawat refers to inviting people to learn about Islam and follow its teachings.It often involves sharing knowledge about faith, prayer, and good deeds.Dawat is a way to spread awareness, encourage moral living, and strengthen community bonds.')">
+      <img src="assets/13.jpg.jpg">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/14.jpg.jpg','Islam','Jumma is the special Friday prayer observed by Muslims every week.People gather at Badshahi Mosque in Lahore for the sermon (Khutbah) and congregational prayer.It is a time for reflection, spiritual growth, and community gathering.')">
+      <img src="assets/14.jpg.jpg">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+
+    <div class="card" onclick="openPopup('assets/15.jpg.jpeg','Christianity','Christmas is celebrated on 25th December to mark the birth of Jesus Christ.People decorate homes, exchange gifts, and attend church services.It is a time of joy, family gatherings, and spreading love and kindness.')">
+      <img src="assets/15.jpg.jpeg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/16.jpg.jpg','Islam','The Dome of the Rock, also called the Golden Mosque, is a famous Islamic shrine in Jerusalem, Palestine.It is known for its stunning golden dome and religious significance in Islam.People visit to pray, reflect, and admire its historic and spiritual importance.')">
+      <img src="assets/16.jpg.jpg">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/17.jpg.jpeg','Islam','The Golden Mosque, known as the Dome of the Rock, is located in Jerusalem, Palestine.It is a sacred site for Muslims and admired for its beautiful architecture.Visitors come to offer prayers and experience its spiritual and historic significance.')">
+      <img src="assets/17.jpg.jpeg">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/18.jpg.jpg','Islam','Dates (Khajoor) are commonly eaten by Muslims, especially to break fasts during Ramadan.They are nutritious and have religious significance in Islamic tradition.Eating dates is a Sunnah of Prophet Muhammad (PBUH) and a way to follow his teachings.')">
+      <img src="assets/18.jpg.jpg">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/19.jpg.jpg','Christianity','A church is a place where Christians gather to pray, sing hymns, and worship God.Services often include Bible readings, sermons, and community prayers.It is a place for spiritual reflection, learning, and strengthening faith with the community.')">
+      <img src="assets/19.jpg.jpg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+
+    <div class="card" onclick="openPopup('assets/20.jpg.jpg','Islam','During Hajj in Mecca, pilgrims wear Ehraam, a special white attire symbolizing purity.They perform rituals including the stoning of Jamrah, which represents rejecting evil.Hajj is a spiritual journey promoting devotion, reflection, and unity among Muslims.')">
+      <img src="assets/20.jpg.jpg">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/25.jpg.jpeg','Christianity','Israel is a country with significant religious history for both Christians and Muslims.Christians visit holy sites like the Church of the Holy Sepulchre, while Muslims visit Al-Aqsa Mosque.It is a place of faith, pilgrimage, and deep spiritual importance for both communities.')">
+      <img src="assets/25.jpg.jpg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/22.jpg.jpg','Christianity','On 25th December, people celebrate Christmas with joy and festive decorations.Families exchange gifts, attend church, and enjoy special meals together.It is a time of love, kindness, and gathering with friends and family.')">
+      <img src="assets/22.jpg.jpg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/23.jpg.jpg','Islam','A Madarsa is an educational institution where Islamic teachings and the Quran are taught.Students learn about faith, prayer, and moral values.It is a place for spiritual learning, community guidance, and nurturing knowledge.')">
+      <img src="assets/23.jpg.jpg">
+      <div class="card-content"><h3>Islam</h3><p></p></div>
+    </div>
+    <div class="card" onclick="openPopup('assets/24.jpg.jpg','Christianity','Christians come together in churches to pray and sing devotional songs.Sermons and Bible readings guide them in faith and moral teachings.Worship is a way to connect spiritually with God and the community.')">
+      <img src="assets/24.jpg.jpg">
+      <div class="card-content"><h3>Christianity</h3><p></p></div>
+    </div>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <img id="popup-img" src="">
+      <h3 id="popup-title"></h3>
+      <p id="popup-desc"></p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+  <footer>
+<div class="container">
+    <div class="col-1">
+        <img src="assets/logo.png" alt="Logo">
+        <p>“All religions teach love, peace, kindness, and respect. When we honor each other’s beliefs, we create a more united and compassionate world.”</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <div class="col-2">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="Books.html">Books</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Festivals</h3>
+        <ul>
+            <li><a href="judiasm.html">Judaism</a></li>
+            <li><a href="islam.html">Islam</a></li>
+            <li><a href="Christianity.html">Christianity</a></li>
+            <li><a href="hinduism.html">Hinduism</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Religious Cities</h3>
+        <ul>
+            <li><a href="https://maps.app.goo.gl/AUKopKAU2eQ4c53t5">Jeruslem</a></li>
+            <li><a href="https://maps.app.goo.gl/F24unVTsVucJ6pc16">Makkah</a></li>
+            <li><a href="https://maps.app.goo.gl/vpg6gdYVXuZoiChX6">Madina</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer-2">
+    <p>© 2025 | Festivals All Rights Reserved.</p>
+</div>
+</footer>
+
+  <script>
+    function openPopup(img, title, desc) {
+      document.getElementById('popup-img').src = img;
+      document.getElementById('popup-title').innerText = title;
+      document.getElementById('popup-desc').innerText = desc;
+      document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

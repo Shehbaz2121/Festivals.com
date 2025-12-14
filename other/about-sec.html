@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* --- FONTS (OPTIONAL IMPORT) --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lora:wght@300;400;500&display=swap');
+
+/* --- SECTION WRAPPER --- */
+.about-section {
+  background-color: #EDE4D6; /* soft cream */
+  padding: 80px 0;
+}
+
+/* --- FLEX CONTAINER --- */
+.about-container {
+  width: 85%;
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+/* --- TEXT COLUMN --- */
+.about-text {
+  flex: 1.2;
+}
+
+.about-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  color: #B08530; /* gold ochre */
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+
+.about-text p {
+  font-family: 'Lora', serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #4A4A32; /* deep olive */
+  margin-bottom: 22px;
+}
+
+/* --- BUTTON --- */
+.about-btn {
+  display: inline-block;
+  padding: 10px 28px;
+  border: 1px solid #B08530;
+  color: #B08530;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.about-btn:hover {
+  background-color: #B08530;
+  color: #fff;
+}
+
+/* --- IMAGE COLUMN --- */
+.about-image {
+  flex: 1;
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  box-shadow: 0px 6px 18px rgba(0,0,0,0.15);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 900px) {
+  .about-container {
+    flex-direction: column;
+  }
+
+  .about-image {
+    margin-top: 30px;
+  }
+}
+
+    </style>
+</head>
+<body>
+    <section class="about-section">
+  <div class="about-container">
+    
+    <div class="about-text">
+      <h2>ABOUT THIS PROJECT</h2>
+      <p>
+        This project is dedicated to celebrating the beauty, history, and depth 
+        of the world’s religious festivals. Each tradition carries a story of 
+        devotion, resilience, memory, and community—woven through centuries of 
+        culture and spiritual expression.
+      </p>
+      <p>
+        Through historical insights, visual storytelling, and carefully curated 
+        narratives, we explore the festivals that shape identities and unite 
+        communities across the globe.
+      </p>
+      <a href="#" class="about-btn">LEARN MORE</a>
+    </div>
+
+    <div class="about-image">
+      <img src="assets/Three_abrahamic_faith.webp" alt="Decorative religious interior">
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

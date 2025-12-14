@@ -1,0 +1,87 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+
+
+footer {
+    width: 100%;
+    background: darkgoldenrod;
+    color: black;
+    padding: 50px 20px;
+}
+.container {
+    width: 90%;
+    margin:auto;
+    display:flex;
+    justify-content: flex-start; /* left align all columns */
+    align-items:flex-start;
+    flex-wrap:wrap;
+}
+
+/* Columns */
+.col-1, .col-2, .col-3 { padding:10px; margin-bottom:20px; text-align:left; } /* left align text */
+.col-1 { flex-basis:30%; }
+.col-2 { flex-basis:20%; }
+.col-3 { flex-basis:20%; } /* col-3 ko do baar use kiya gaya hai, dono theek kaam kar rahe hain */
+
+/* Logo */
+.col-1 img { height:200px; width:200px; transition:.3s; }
+.col-1 img:hover { transform:scale(1.1); }
+
+/* Quote below logo */
+.col-1 p {
+    margin:15px 0;
+    font-size:14px;
+    line-height:1.5;
+    color:black;
+}
+
+/* Social Icons below quote */
+.social-icons {
+    margin-top:10px;
+}
+.social-icons a {
+    display:inline-block;
+    width:40px;
+    height:40px;
+    background:#fff;
+    color:#25262A;
+    text-align:center;
+    line-height:40px;
+    border-radius:50%;
+    margin:0 5px 5px 0;
+    transition:.3s;
+}
+.social-icons a:hover { background:#ffffff; color:#000000; }
+
+/* Links */
+.container h3 { 
+    font-size: 20px; 
+    margin-bottom: 15px; 
+    transition: 0.3s; 
+    display: inline-block;  /* <-- Yahan width sirf text jitni hai */
+    border-bottom: 2px solid black; /* Blue Border */
+    padding-bottom: 5px; /* Text aur border ke beech gap */
+}
+/* FIX: transform:scale se border kharab ho raha tha, isliye ab sirf color change hoga */
+.container h3:hover { 
+    color: #ffffff; /* Hover par text color blue ho jaaye */
+    /* transform:scale(1.05); yeh line hata di hai */
+} 
+
+ul { list-style:none; }
+ul li { margin-bottom:10px; }
+ul li a { text-decoration:none; color:black; transition:.3s; }
+ul li a:hover { color:rgb(95, 70, 5); }
+
+.footer-2 { text-align:center; padding:20px; background: darkgoldenrod; font-size:14px; }
+
+
+@media(max-width:900px){
+    .container { flex-direction:column; align-items:flex-start; } 
+    .col-1, .col-2, .col-3 { flex-basis:100%; margin-bottom:20px; }
+    .col-1 img { width:120px; height:120px; }
+}
+@media(max-width:480px){
+    .social-icons a { width:35px; height:35px; line-height:35px; }
+    .container h3 { font-size:18px; }
+    .col-1 p { font-size:13px; }
+}

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="css/footer.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title>Festivals.com</title>
+
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+  }
+body {
+    background-color: darkgray;
+    margin: 0;
+    padding: 0;
+    animation: FadeInPage 1s ease-in forwards;
+}
+@keyframes FadeInPage {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
+        .animate-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slideLeft 1s ease-out forwards;
+}
+
+.animate-right {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slideRight 1s ease-out forwards;
+}
+
+.animate-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1s ease-out forwards;
+}
+.animate-down {
+    opacity: 0;
+    transform: translateY(-40px);
+    animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideLeft {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  padding: 12px 30px;
+  z-index: 9999;
+  transition: background-color .4s ease, padding .3s ease;
+}
+
+.navbar.scrolled {
+    background-color: darkgoldenrod;
+    padding: 8px 30px;
+}
+.navbar.scrolled a {
+    color: rgb(0, 0, 0);
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    transition: .5s ease-in;
+}
+.logo:hover {
+  width: 120px;
+  height: 120px;
+}
+
+.navbar a {
+  float: left;
+  font-size: 20px;
+  color: white;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: .5s ease;
+}
+
+.navbar a:hover {
+   color: rgb(109, 80, 7);
+}
+
+.toggle-btn {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .toggle-btn {
+        display: block;
+        margin-right: 20px;
+    }
+
+    .navbar {
+      position: fixed;
+      background-color: darkgoldenrod;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        background: darkgoldenrod;
+        padding-bottom: 10px;
+        align-items: flex-start;
+    }
+
+    .nav-links a {
+        text-align: left;
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+}
+
+body.menu-open { overflow: hidden; }
+
+:root{
+  --paper:#f3efe6;
+  --dark:#3f3528;
+  --gold:#8a6e4a;
+  --warm:#e8dcc3;
+}
+
+body {
+  background: var(--paper);
+  color: var(--dark);
+  font-family: Georgia, serif;
+}
+
+.hero{
+  position:relative;
+  height:100vh;
+  background:url('assets/madrasa.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+  padding:60px;
+}
+.hero .overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.15),rgba(0,0,0,.5));
+}
+.hero h1{
+  position:relative;
+  color:#f3efe6;
+  font-size:52px;
+  text-shadow:0 3px 20px rgba(0,0,0,.55);
+}
+
+.section{padding:80px 8%}
+.section h2{font-size:34px;color:#6e5a46}
+.section p{font-size:18px;line-height:1.7;max-width:900px}
+
+.festival{margin-top:60px;border-top:1px solid #c8b79f;padding-top:60px}
+.festival-title{font-size:30px;color:var(--gold)}
+
+.grid{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+.grid img{
+  width:100%;height:380px;object-fit:cover;border-radius:12px;
+  transition:transform .4s ease;
+}
+.grid img:hover{
+  transform:scale(1.06) translateY(-6px);
+}
+
+.quote{
+  padding:90px 8%;
+  background:var(--warm);
+  text-align:center;
+  font-size:28px;
+  color:#6e5a46;
+}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .hero{height:60vh;padding:40px}
+  .hero h1{font-size:40px}
+}
+@media (max-width:600px){
+  .hero{height:45vh;padding:25px}
+  .hero h1{font-size:30px}
+  .grid img{height:220px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <div style="display: flex; align-items: center;">
+        <img class="logo" src="assets/logo.png" alt="">
+    </div>
+
+    <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="mainNav">
+        <a href="festivals.html">festivals</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="Books.html">Books</a>
+        <a href="about.html">About</a>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("open");
+  document.body.classList.toggle("menu-open");
+}
+
+const navbar = document.querySelector(".navbar");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+</script>
+
+<section class="hero animate-down">
+  <div class="overlay"></div>
+  <h1 class="animate-left">The Spirit, Heritage & Festivals of Islam</h1>
+</section>
+
+<section class="section animate-right">
+  <h2>About Islam</h2>
+  <p>
+    Origin: 7th century CE, Arabia (Makkah & Madinah)<br>
+    Belief: One God (Allah), Prophethood of Muhammad (PBUH) <br>
+    Holy Book: The Qur’an<br>
+    Places of Worship: Mosques<br>
+    Followers Called: Muslims<br><br>
+
+    Islam is built on devotion, spirituality, community, and moral discipline.
+    Its festivals reflect gratitude, sacrifice, unity, prayer, and remembrance of
+    important moments in Muslim history.
+  </p>
+</section>
+
+<section class="section festival animate-left">
+  <h3 class="festival-title">Eid al-Fitr</h3>
+  <!-- p>Eid-ul-Fitr marks the end of Ramadan and is a celebration of faith, community, and thankfulness.</p> -->
+  <p>Eid-ul-Fitr marks the end of Ramadan and is a celebration of faith, community, and thankfulness. The day begins with a special congregational prayer, followed by sermons and collective supplications. Muslims wear new or clean clothes, visit relatives and friends, exchange gifts, and share festive foods and sweets—especially dishes unique to each culture. Charity, known as Zakat-ul-Fitr, is obligatory and ensures that those in need can also celebrate with dignity and joy. Eid-ul-Fitr highlights forgiveness, unity, peace, and gratitude for the strength and blessings experienced during Ramadan.
+</p>
+  <p><strong><br>Date: 1st Shawal </strong></p>
+  <div class="grid">
+    <img src="assets/fitr1.png" alt="">
+    <img src="assets/Fitr2.jpg" alt="">
+  </div>
+</section>
+
+<section class="section festival animate-right">
+  <h3 class="festival-title">Eid al-Adha</h3>
+  <!-- <p>Eid-ul-Adha, the “Festival of Sacrifice,” commemorates Prophet Ibrahim’s devotion.</p> -->
+   <p>Eid-ul-Adha, the “Festival of Sacrifice,” commemorates Prophet Ibrahim’s willingness to sacrifice his son in obedience to God’s command—a test of devotion and faith. The festival occurs during the Islamic month of Zhul-Hijjah and coincides with the climax of the annual Hajj pilgrimage in Makkah. Muslims begin the day with a communal prayer, then perform Qurbani—the sacrifice of an animal such as a goat, sheep, cow, or camel. The meat is divided into three parts: one for the family, one for relatives and friends, and one for the poor. Eid-ul-Adha teaches lessons of humility, generosity, surrender to God’s will, and care for the less fortunate. It is also a celebration of family, shared meals, hospitality, and spiritual reflection.
+</p>
+  <p><strong><br>Date: 10 Zul Hajj</strong></p>
+  <div class="grid">
+    <img src="assets/adha1.jpeg" alt="">
+    <img src="assets/adha2.jpg" alt="">
+  </div>
+</section>
+
+<section class="section festival animate-left">
+  <h3 class="festival-title">Ramadan</h3>
+  <!-- <p>The holiest month; fasting, prayer, charity, and spiritual reflection.</p> -->
+   <p>Ramadan is the ninth month of the Islamic lunar calendar and is considered the holiest month in Islam. Muslims fast from dawn to sunset, abstaining from food, drink, and negative behavior to cultivate self-discipline, patience, and empathy for the poor. The pre-dawn meal is called suhoor, and the fast is broken at sunset with iftar, traditionally starting with dates and water. Ramadan is also a time of increased prayer, Qur’an recitation, charity, and seeking forgiveness. The Night of Power (Laylat-ul-Qadr), believed to be when the Qur’an was first revealed, is observed with special devotion. Beyond physical fasting, Ramadan encourages spiritual cleansing, gratitude, generosity, compassion, and deep reflection on one’s relationship with God.
+</p>
+  <p><strong><br>Duration: The Whole Month of Ramadan</strong></p>
+  <div class="grid">
+    <img src="assets/ramadan1.jpg" alt="">
+    <img src="assets/ramadan2.jpg" alt="">
+  </div>
+</section>
+
+<section class="section festival animate-right">
+  <h3 class="festival-title">Mawlid al-Nabi (mostly observed in South Asia)</h3>
+  <!-- <p>Commemorates the birth of Prophet Muhammad ﷺ and honors his life and teachings.</p> -->
+  <p>Mawlid-un-Nabi commemorates the birth of Prophet Muhammad ﷺ and honors his life, character, and teachings. While its observance varies—some Muslim communities celebrate publicly, while others focus privately—common traditions include gatherings for prayer, recitation of poetry (Naat), storytelling about the Prophet’s compassion, justice, and wisdom, and acts of charity. Homes, streets, and mosques may be decorated, and community meals may be shared. The festival encourages believers to embody the Prophet’s values—kindness, humility, honesty, service to humanity, and mercy toward all creation.
+</p>
+  <p><strong><br>Duration: 12 Rabi Al Awal</strong></p>
+  <div class="grid">
+    <img src="assets/Milad1.jpg" alt="">
+    <img src="assets/Milad2.jpg" alt="">
+  </div>
+</section>
+
+<section class="quote animate-up">
+  “Islam teaches peace, unity, compassion, and gratitude — values celebrated through its festivals.”
+</section>
+<footer>
+<div class="container">
+    <div class="col-1">
+        <img src="assets/logo.png" alt="Logo">
+        <p>“All religions teach love, peace, kindness, and respect. When we honor each other’s beliefs, we create a more united and compassionate world.”</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <div class="col-2">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="Books.html">Books</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Festivals</h3>
+        <ul>
+            <li><a href="judiasm.html">Judaism</a></li>
+            <li><a href="islam.html">Islam</a></li>
+            <li><a href="Christianity.html">Christianity</a></li>
+            <li><a href="hinduism.html">Hinduism</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Religious Cities</h3>
+        <ul>
+            <li><a href="https://maps.app.goo.gl/AUKopKAU2eQ4c53t5">Jeruslem</a></li>
+            <li><a href="https://maps.app.goo.gl/F24unVTsVucJ6pc16">Makkah</a></li>
+            <li><a href="https://maps.app.goo.gl/vpg6gdYVXuZoiChX6">Madina</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer-2">
+    <p>© 2025 | Festivals All Rights Reserved.</p>
+</div>
+</footer>
+</body>
+</html>

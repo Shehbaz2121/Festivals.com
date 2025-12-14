@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HZAIFA Animation</title>
+
+<style>
+    body {
+        margin: 0;
+        
+    }
+  .container {
+    height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #111;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(to top,darkgoldenrod,rgba(199, 152, 0, 0.5));
+        background-repeat: no-repeat;
+        background-image:url(https://www.thesavvygamer.com/storage/app/media/historysnob/2025/10/1/175934481753c0272479fc477441d9fa9d499babcb20e5d3fe.jpg) ;
+        /* background-image: url(https://www.thesavvygamer.com/storage/app/media/historysnob/2025/10/1/175934481753c0272479fc477441d9fa9d499babcb20e5d3fe.jpg); */
+    
+  }
+    h1 {
+        font-size: 80px;
+        color: white;
+        display: flex;
+        gap: 10px;
+    }
+
+    .letter {
+        opacity: 0;
+        animation: show 0.7s forwards;
+    }
+    /* .land{
+        background-image: url(https://www.thesavvygamer.com/storage/app/media/historysnob/2025/10/1/175934481753c0272479fc477441d9fa9d499babcb20e5d3fe.jpg);
+    } */
+
+    /* Delay per letter */
+    .letter:nth-child(1) { animation-delay: 0.2s; }  /* H */
+    .letter:nth-child(2) { animation-delay: 0.4s; }  /* Z */
+    .letter:nth-child(3) { animation-delay: .6s; }    /* A */
+    .letter:nth-child(4) { animation-delay: .8s; }  /* I */
+    .letter:nth-child(5) { animation-delay: 1s; }  /* F */
+    .letter:nth-child(6) { animation-delay: 1.2s; }  /* A */
+    .letter:nth-child(7) { animation-delay: 1.4s; }  /* A */
+    .letter:nth-child(8) { animation-delay: 1.6s; }  /* A */
+    .letter:nth-child(9) { animation-delay: 1.8s; }
+    @keyframes show {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .button {
+        display: inline-block;
+  padding: 10px 28px;
+  border: 1px solid #B08530;
+  color: #B08530;
+  font-family: 'Playfair Display', serif;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  background-color: rgba(0, 255, 255, 0);
+  transition: .5s ease-in;
+    }
+  .button:hover{
+     background-color: #B08530; ;
+    color: aliceblue;
+  }
+    
+</style>
+</head>
+<body>
+    <div class="container">
+<div class="land">
+<h1>
+    <span class="letter" style="color: goldenrod;">F</span>
+    <span class="letter">E</span>
+    <span class="letter">S</span>
+    <span class="letter">T</span>
+    <span class="letter">I</span>
+    <span class="letter">V</span>
+    <span class="letter">A</span>
+    <span class="letter">L</span>
+    <span class="letter">S</span>
+</h1>
+</div>
+<div style="justify-content: center; display: flex;" >
+   <button class="button">Explore More</button>
+
+</div>
+</div>
+</body>
+</html>

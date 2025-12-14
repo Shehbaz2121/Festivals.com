@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/Main.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festivals.com</title>
+    <script src="Js/Main.js"></script>
+</head>
+<body>
+    <header>
+      <script src="Js/Main.js"></script>
+    <div class="navbar">
+        <div style="display: flex; align-items: center;">
+        <img class="logo" src="assets/logo.png" alt="">
+        </div>
+        <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+    <a href="festivals.html">festivals</a>
+    <!-- <div class="dropdown-content">
+      <a href="#">Islam</a>
+      <a href="#">Judiasm</a>
+      <a href="#">Christianity</a>
+      <a href="#">Hinduism</a>  
+    </div>
+  </div> -->
+  <!-- <div class="dropdown">
+    <a class="dropbtn"></a>
+    <div class="dropdown-content">
+      <a href="#">Rosh Hashanah</a>
+      <a href="#">Yom Kippur</a>
+      <a href="#">Sikkot</a>  
+    </div>
+  </div>
+  <div class="dropdown">
+    <a class="dropbtn">Christianity</a>
+    <div class="dropdown-content">
+      <a href="#">Christmas</a>
+      <a href="#">Good Friday</a>
+      <a href="#">Easter</a>
+      <a href="#">Pentecost</a>  
+    </div>
+  </div>
+  <div class="dropdown">
+    <a class="dropbtn">Hinduism</a>
+    <div class="dropdown-content">
+      <a href="#">1</a>
+      <a href="#">2</a>
+      <a href="#">3</a>
+      <a href="#">4</a>  
+    </div>
+  </div> -->
+  <a href="feedback.html">Feedback</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="Books.html">Books</a>
+  <a href="about.html">About</a>
+   </div>
+</div>
+ <script>
+        const navbar = document.querySelector(".navbar");
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 40) {
+                navbar.classList.add("scrolled");
+            } else {
+                navbar.classList.remove("scrolled");
+            }
+        });
+    </script>    
+</header>
+    <!-- <section class="animate-down image-banner">
+    <div class="banner-content">
+        <h1>Religious Festivals</h1>
+        <p>Rediscover the beauty and meaning of sacred traditions.</p>
+    </div>
+</section> -->
+<section class="hero" aria-label="Hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+
+    <h1 class="hero-title">Religious Festivals</h1>
+    <p class="hero-para" style="font-size: 40px; top: 86%; left: 7%; font-weight: 500;">Rediscover the beauty and meaning of sacred traditions.</p>
+    
+  </section>
+<section class="animate-right about-section">
+  <div class="about-container">
+    
+    <div class="about-text">
+      <h2>ABOUT THIS PROJECT</h2>
+      <p>
+        This project is dedicated to celebrating the beauty, history, and depth 
+        of the world’s religious festivals. Each tradition carries a story of 
+        devotion, resilience, memory, and community—woven through centuries of 
+        culture and spiritual expression.
+      </p>
+      <p>
+        Through historical insights, visual storytelling, and carefully curated 
+        narratives, we explore the festivals that shape identities and unite 
+        communities across the globe.
+      </p>
+      <a href="about.html" class="about-btn">LEARN MORE</a>
+    </div>
+
+    <div class="about-image">
+      <img src="assets/Three_abrahamic_faith.webp" alt="Decorative religious interior">
+    </div>
+
+  </div>
+</section>
+<section class="animate-right explore-section">
+    <div class="explore-content">
+        <h2>Discover More About Our Religious Festivals</h2>
+        <p>
+            Learn about the origins, meanings, and cultural significance behind the
+            festivals that bring communities together across the world.
+        </p>
+
+        <a href="festivals.html" class="explore-btn">Explore More</a>
+    </div>
+</section>
+<section class="animate-left gallery-preview" id="gallery">
+    <div class="gallery-text">
+        <h2>Explore Our Gallery</h2>
+        <p>
+            Dive into a visual journey of sacred traditions, vibrant festivals,  
+            and timeless rituals captured beautifully from around the world.
+        </p>
+        <a href="#" class="gallery-btn">View Gallery</a>
+    </div>
+
+    <div class="gallery-image-container">
+        <img src="assets/Navratri.jpg" 
+             class="gallery-img" alt="Festival Image">
+    </div>
+     <script src="Js/Main.js"></script>
+</section>
+<footer>
+<div class="container">
+    <div class="col-1">
+        <img src="assets/logo.png" alt="Logo">
+        <p>“All religions teach love, peace, kindness, and respect. When we honor each other’s beliefs, we create a more united and compassionate world.”</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <div class="col-2">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="Books.html">Books</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Festivals</h3>
+        <ul>
+            <li><a href="judiasm.html">Judaism</a></li>
+            <li><a href="islam.html">Islam</a></li>
+            <li><a href="Christianity.html">Christianity</a></li>
+            <li><a href="hinduism.html">Hinduism</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Religious Cities</h3>
+        <ul>
+            <li><a href="https://maps.app.goo.gl/AUKopKAU2eQ4c53t5">Jeruslem</a></li>
+            <li><a href="https://maps.app.goo.gl/F24unVTsVucJ6pc16">Makkah</a></li>
+            <li><a href="https://maps.app.goo.gl/vpg6gdYVXuZoiChX6">Madina</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer-2">
+    <p>© 2025 | Festivals All Rights Reserved.</p>
+</div>
+</footer>
+</body>
+</html>

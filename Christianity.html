@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<title>Festivals.com</title>
+<link rel="stylesheet" href="css/footer.css">
+
+<style>
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+  }
+body {
+    background-color: darkgray;
+    margin: 0;
+    padding: 0;
+    animation: FadeInPage 1s ease-in forwards;
+}
+@keyframes FadeInPage {
+          from {opacity: 0;}
+          to {opacity: 1;}
+        }
+        .animate-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slideLeft 1s ease-out forwards;
+}
+
+.animate-right {
+    opacity: 0;
+    transform: translateX(40px);
+    animation: slideRight 1s ease-out forwards;
+}
+
+.animate-up {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: slideUp 1s ease-out forwards;
+}
+.animate-down {
+    opacity: 0;
+    transform: translateY(-40px);
+    animation: slideUp 1s ease-out forwards;
+}
+
+@keyframes slideLeft {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: transparent;
+  padding: 12px 30px;
+  z-index: 9999;
+  transition: background-color .4s ease, padding .3s ease;
+}
+
+.navbar.scrolled {
+    background-color: darkgoldenrod;
+    padding: 8px 30px;
+}
+.navbar.scrolled a {
+    color: rgb(0, 0, 0);
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    transition: .5s ease-in;
+}
+.logo:hover {
+  width: 120px;
+  height: 120px;
+}
+
+.navbar a {
+  float: left;
+  font-size: 20px;
+  color: white;
+  text-align: left;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: .5s ease;
+}
+
+.navbar a:hover {
+   color: rgb(109, 80, 7);
+}
+
+.toggle-btn {
+    display: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .toggle-btn {
+        display: block;
+        margin-right: 20px;
+    }
+
+    .navbar {
+      position: fixed;
+      background-color: darkgoldenrod;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        background: darkgoldenrod;
+        padding-bottom: 10px;
+        align-items: flex-start;
+    }
+
+    .nav-links a {
+        text-align: left;
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+}
+
+body.menu-open { overflow: hidden; }
+:root{
+  --paper:#f3efe6;
+  --dark:#3f3528;
+  --gold:#8a6e4a;
+  --warm:#e8dcc3;
+}
+
+body {
+  background: var(--paper);
+  color: var(--dark);
+  font-family: Georgia, serif;
+}
+
+.hero{
+  position:relative;
+  height:100vh;
+  background:url('assets/Jesus.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+  padding:60px;
+}
+.hero .overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.15),rgba(0,0,0,.5));
+}
+.hero h1{
+  position:relative;
+  color:#f3efe6;
+  font-size:52px;
+  text-shadow:0 3px 20px rgba(0,0,0,.55);
+}
+
+.section{padding:80px 8%}
+.section h2{font-size:34px;color:#6e5a46}
+.section p{font-size:18px;line-height:1.7;max-width:900px}
+
+.festival{margin-top:60px;border-top:1px solid #c8b79f;padding-top:60px}
+.festival-title{font-size:30px;color:var(--gold)}
+
+.grid{
+  margin-top:30px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:22px;
+}
+.grid img{
+  width:100%;height:380px;object-fit:cover;border-radius:12px;
+  transition:transform .4s ease;
+}
+.grid img:hover{
+  transform:scale(1.06) translateY(-6px);
+}
+
+.quote{
+  padding:90px 8%;
+  background:var(--warm);
+  text-align:center;
+  font-size:28px;
+  color:#6e5a46;
+}
+
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr}
+  .hero{height:60vh;padding:40px}
+  .hero h1{font-size:40px}
+}
+@media (max-width:600px){
+  .hero{height:45vh;padding:25px}
+  .hero h1{font-size:30px}
+  .grid img{height:220px}
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+    <div style="display: flex; align-items: center;">
+        <img class="logo" src="assets/logo.png" alt="">
+    </div>
+
+    <div class="toggle-btn" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="mainNav">
+        <a href="festivals.html">festivals</a>
+        <a href="feedback.html">Feedback</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="Books.html">Books</a>
+        <a href="about.html">About</a>
+    </div>
+</div>
+
+<script>
+function toggleMenu() {
+  document.querySelector(".nav-links").classList.toggle("open");
+  document.body.classList.toggle("menu-open");
+}
+
+const navbar = document.querySelector(".navbar");
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 400) {
+        navbar.classList.add("scrolled");
+    } else {
+        navbar.classList.remove("scrolled");
+    }
+});
+</script>
+
+<section class="hero animate-down">
+  <div class="overlay"></div>
+  <h1 class="animate-left">The Spirit, Heritage & Festivals of Christianity</h1>
+</section>
+
+<section class="section animate-right">
+  <h2>About Christianity</h2>
+  <p>
+    Origin: 1st century CE, Judea (modern-day Israel/Palestine) <br>
+    Belief: One God; Jesus Christ as the Son of God and Savior <br>
+    Sacred Text: The Bible (Old & New Testament) <br>
+    Places of Worship: Churches <br>
+    Followers Called: Christians <br><br><br>
+
+
+    Christianity is a monotheistic religion centered on the life, teachings, and message of Jesus Christ, whom believers regard as the Son of God and the Messiah promised in earlier scriptures. It emphasizes love, compassion, forgiveness, and the belief that salvation comes through faith in Jesus and his sacrifice. The Bible, consisting of the Old and New Testaments, serves as its holy scripture, guiding followers in moral conduct, worship, and spiritual understanding. Christianity has numerous denominations—such as Catholicism, Protestantism, and Orthodoxy—each with its own traditions, practices, and interpretations, yet all united around the core belief in Jesus’ teachings.
+
+  </p>
+</section>
+
+<section class="section festival animate-left">
+  <h3 class="festival-title">Christmas</h3>
+  <!-- p>Eid-ul-Fitr marks the end of Ramadan and is a celebration of faith, community, and thankfulness.</p> -->
+   <p>
+      Christmas is celebrated on December 25th and honors the birth of Jesus Christ, whom Christians believe is the Son of God and the Savior of humanity. The festival is rooted in the Nativity story, where Jesus was born in Bethlehem to Mary and Joseph, symbolizing humility, hope, and divine love. Religious observances include attending midnight or morning church services, reading Gospel passages, singing carols, and reflecting on God’s gift to the world. Cultural traditions—such as decorating Christmas trees, exchanging gifts, hanging lights, and sharing festive meals—express togetherness, generosity, and joy. While Christmas has become a global holiday celebrated by many non-Christians as well, its spiritual message emphasizes peace, compassion, forgiveness, and renewed faith.
+   </p>
+  <p><strong><br>Date: 25th December of roman calendar</strong></p>
+  <div class="grid">
+    <img src="assets/Christmas1.jpg" alt="">
+    <img src="assets/Christmas2.jpg" alt="">
+  </div>
+</section>
+
+<section class="section festival animate-right">
+  <h3 class="festival-title">Good Friday</h3>
+  <!-- <p>Eid-ul-Adha, the “Festival of Sacrifice,” commemorates Prophet Ibrahim’s devotion.</p> -->
+    <p>Good Friday occurs two days before Easter and commemorates the crucifixion and death of Jesus Christ. It is one of the most solemn days in Christianity, reminding believers of Jesus’ sacrifice for humanity’s forgiveness and salvation. Many Christians attend quiet church services, observe the Stations of the Cross, read the Passion narrative from the Bible, fast, or refrain from celebrations. In some cultures, reenactments of the crucifixion or processions are performed as acts of devotion. The somber mood encourages deep reflection on suffering, justice, selflessness, and the meaning of redemption. Good Friday is not an ending, but a spiritual reminder that hope and resurrection will follow.
+</p>
+  <p><strong><br>Date: Not Fixed</strong></p>
+  <div class="grid">
+    <img src="assets/Good-Friday-1.jpg" alt="">
+    <img src="assets/Big Cross.jpg" alt="">
+  </div>
+</section>
+
+<section class="section festival animate-left">
+  <h3 class="festival-title">Easter</h3>
+  <!-- <p>The holiest month; fasting, prayer, charity, and spiritual reflection.</p> -->
+   <p>Easter is the most significant Christian festival, celebrating Jesus Christ’s resurrection—believed to have occurred on the third day after his crucifixion. It symbolizes victory of life over death, good over evil, and eternal hope. Churches hold joyful worship services filled with music, flowers, and proclamations of “He is risen.” Families may gather for meals, and cultural customs like Easter eggs, egg hunts, and spring flowers represent rebirth and new beginnings. Unlike Christmas, Easter does not have a fixed calendar date—it falls on the first Sunday after the full moon following the spring equinox. For Christians, Easter is a powerful affirmation of faith, renewal, and God’s promise of salvation.
+</p>
+  <p><strong><br>Duration: Not Fixed</strong></p>
+  <div class="grid">
+    <img src="assets/easter1.jpg" alt="">
+    <img src="assets/easter2.jpg" alt="">
+  </div>
+</section>
+
+<section class="section festival animate-right">
+  <h3 class="festival-title">Pentecost</h3>
+  <!-- <p>Commemorates the birth of Prophet Muhammad ﷺ and honors his life and teachings.</p> -->
+  <p>Pentecost occurs fifty days after Easter and marks the moment when the Holy Spirit descended upon Jesus’ disciples, empowering them to spread his teachings. It is often recognized as the “birthday of the Christian Church.” Churches celebrate with readings from the Book of Acts, prayers for unity, and symbols of fire and wind, representing divine inspiration. Pentecost emphasizes guidance, community, and spiritual strength, reminding Christians that their faith calls them to serve, share, and uplift others. Pentecost takes place fifty days after Easter and marks the descent of the Holy Spirit upon the disciples of Jesus, as described in the Book of Acts. This event empowered them to preach and spread the Christian message, which is why Pentecost is often considered the “birthday of the Christian Church.” Churches may use red decorations, symbolizing the Holy Spirit’s fire, and many believers pray for spiritual strength, wisdom, and unity. Pentecost highlights the importance of community, service, and carrying forward Jesus’ teachings. It reminds Christians that faith is not only personal—it is also shared and lived through action.
+</p>
+  <p><strong><br>Duration: Five days after Easter</strong></p>
+  <div class="grid">
+    <img src="assets/pentecost1.jpg" alt="">
+    <img src="assets/pentecost2.jpg" alt="">
+  </div>
+</section>
+
+<section class="quote animate-up">
+  “Christianity teaches that light is strongest when shared, and grace is greatest when given.”
+</section>
+<footer>
+<div class="container">
+    <div class="col-1">
+        <img src="assets/logo.png" alt="Logo">
+        <p>“All religions teach love, peace, kindness, and respect. When we honor each other’s beliefs, we create a more united and compassionate world.”</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </div>
+
+    <div class="col-2">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="feedback.html">Feedback</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="festivals.html">Festivals</a></li>
+            <li><a href="Books.html">Books</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Festivals</h3>
+        <ul>
+            <li><a href="judiasm.html">Judaism</a></li>
+            <li><a href="islam.html">Islam</a></li>
+            <li><a href="Christianity.html">Christianity</a></li>
+            <li><a href="hinduism.html">Hinduism</a></li>
+        </ul>
+    </div>
+
+    <div class="col-3">
+        <h3>Religious Cities</h3>
+        <ul>
+            <li><a href="https://maps.app.goo.gl/AUKopKAU2eQ4c53t5">Jeruslem</a></li>
+            <li><a href="https://maps.app.goo.gl/F24unVTsVucJ6pc16">Makkah</a></li>
+            <li><a href="https://maps.app.goo.gl/vpg6gdYVXuZoiChX6">Madina</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="footer-2">
+    <p>© 2025 | Festivals All Rights Reserved.</p>
+</div>
+</footer>
+</body>
+</html>
